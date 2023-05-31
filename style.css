@@ -15,6 +15,7 @@ body{
     font-family: 'Poppins', sans-serif;
     /* width: min(95vw,31.25em); */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     
@@ -35,8 +36,38 @@ body{
     background-color: transparent;
     color: #111111;
     font-size: 0.9em;
-    border: none;
-    border-bottom: 2px solid #d1d3d1;
+    /* border: ; */
+    border: 2px solid #d1d3d1;
     padding: 1em 0.5em;
+    border-radius: 0.6em;
+    height: 2.5rem;
 }
+#wrapper input:focus{
+    outline: #5a95ff;
+    border-color: #5a95ff;
+}
+#wrapper button{
+    position: relative;
+    border-radius: 0.5em;
+    font-weight: 500;
+    background-color: #5a95ff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    height: 2.5rem;
+}
+#wrapper button:hover{
+   transform: scale(1.1);
+}
+#error{
+    text-align: center;
+    position: relative;
+    /* width: 30%; */
    
+    background-color: #ffffff;
+    color: #ff5c5c;
+    margin-top: 1em;
+    padding: 1em 0;
+    border-radius: 0.8em;
+    
+} 
