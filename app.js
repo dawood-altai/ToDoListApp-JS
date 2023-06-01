@@ -9,13 +9,28 @@ const displayCount = (taskCount) => {
     countValue.innerText = taskCount;
 };
 
+ // Add button functions 
 const addTask = () => {
-    const taskName = newTaskInput.ariaValueMax.trim();
+    const taskName = newTaskInput.value.trim();
     error.style.display= "none";
     if(!taskName) {
         setTimeout(() => {
             error.style.display="block";
         }, 200);
+        return;
     }
+    const task = `<div class="task" 
+<input type="checkbox" class="task-check">
+<span class="taskName">${taskName}</span>
+
+<button class="edit">    <i class="fa-solid fa-pen-to-square"></i> </button>
+<button class="delete">  <i class="fa-solid fa-delete-left"></i>  </button>
+
+</div>`;
+tasksContainer.insertAdjacentHTML("beforeend", task);
 }
+
+addBtn.addEventListener("click",addTask);
+
+
 
