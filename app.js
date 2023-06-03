@@ -38,6 +38,8 @@ deleteButtons.forEach(button => {
     };
     
 });
+
+
 };
 
 addBtn.addEventListener("click",addTask);
