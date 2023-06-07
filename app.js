@@ -35,6 +35,7 @@ deleteButtons.forEach(button => {
         button.parentNode.remove();
         taskCount = -1;
         displayCount(taskCount);
+     
     };
     
 });
