@@ -2,24 +2,24 @@ const addBtn = document.querySelector("#add-btn");
 const newTaskInput = document.querySelector("#wrapper input");
 const tasksContainer = document.querySelector("#tasks");
 const error = document.getElementById("error");
-const countValue = document.querySelector(".count-value")
+const countValue = document.querySelector(".count-value");
 let taskCount = 0;
 
-const displayCount = (taskCount) => {
+const updateTaskCount = (change) => {
+    taskCount += change;
     countValue.innerText = taskCount;
 };
 
- // Add button functions 
 const addTask = () => {
     const taskName = newTaskInput.value.trim();
-    error.style.display= "none";
-    if(!taskName) {
+    error.style.display = "none";
+    if (!taskName) {
         setTimeout(() => {
-            error.style.display="block";
+            error.style.display = "block";
         }, 200);
         return;
     }
-    const task = `<div class="task" 
+    const task = `<div class="task">
 <input type="checkbox" class="task-check">
 <span class="taskName">${taskName}</span>
 
@@ -27,23 +27,17 @@ const addTask = () => {
 <button class="delete">  <i class="fa-solid fa-delete-left"></i>  </button>
 
 </div>`;
-tasksContainer.insertAdjacentHTML("beforeend", task);
+    tasksContainer.insertAdjacentHTML("beforeend", task);
 
-const deleteButtons = document.querySelectorAll(".delete");
-deleteButtons.forEach(button => {
-    button.onclick = () => {
-        button.parentNode.remove();
-        taskCount = -1;
-        displayCount(taskCount);
-     
-    };
-    
-});
+    const deleteButtons = document.querySelectorAll(".delete");
+    deleteButtons.forEach(button => {
+        button.onclick = () => {
+            button.parentNode.remove();
+            updateTaskCount(-1);
+        };
+    });
 
-
+    updateTaskCount(1);
 };
 
-addBtn.addEventListener("click",addTask);
- 
-
-
+addBtn.addEventListener("click", addTask);
