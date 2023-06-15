@@ -38,6 +38,27 @@ const addTask = () => {
     });
 
     updateTaskCount(1);
+
+    const editButtons = document.querySelectorAll(".edit");
+    editButtons.forEach((editBtn) =>  {
+        editBtn.onclick = (e) => {
+            let targetElement = e.target;
+            if(!(e.target.className == "edit")){
+                targetElement = e.target.parentElement;
+            } 
+            newTaskInput.value = targetElement;
+            previousElementSibling?.innerText;
+            targetElement.parentNode.remove();
+            taskCount-=1;
+            displayCount(taskCount);
+        };
+    });
 };
 
 addBtn.addEventListener("click", addTask);
+
+window.onload = () => {
+    taskCount = 0;
+    displayCount(taskCount);
+    newTaskInput.value = "";
+};
