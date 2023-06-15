@@ -8,6 +8,9 @@
 }
 body{
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: linear-gradient(#d1d3d1 10%,  #5a95ff 60%);
 }
 
@@ -60,6 +63,12 @@ body{
 #wrapper button:hover{
    transform: scale(1.1);
 }
+#github{
+    margin-top: 30px;
+    border-radius: 100%;
+    width: auto;
+}
+
 #error{
     text-align: center;
     position: relative;
